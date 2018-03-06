@@ -70,6 +70,8 @@ func parseTerragruntOptionsFromArgs(args []string, writer, errWriter io.Writer) 
 
 	ignoreDependencyErrors := parseBooleanArg(args, OPT_TERRAGRUNT_IGNORE_DEPENDENCY_ERRORS, false)
 
+	allSubmodules := parseBooleanArg(args, OPT_TERRAGRUNT_ALL_SUBMODULES, false)
+
 	iamRole, err := parseStringArg(args, OPT_TERRAGRUNT_IAM_ROLE, os.Getenv("TERRAGRUNT_IAM_ROLE"))
 	if err != nil {
 		return nil, err
@@ -90,6 +92,7 @@ func parseTerragruntOptionsFromArgs(args []string, writer, errWriter io.Writer) 
 	opts.Source = terraformSource
 	opts.SourceUpdate = sourceUpdate
 	opts.IgnoreDependencyErrors = ignoreDependencyErrors
+	opts.allSubmodules = allSubmodules
 	opts.Writer = writer
 	opts.ErrWriter = errWriter
 	opts.Env = parseEnvironmentVariables(os.Environ())

@@ -29,8 +29,9 @@ const OPT_TERRAGRUNT_SOURCE = "terragrunt-source"
 const OPT_TERRAGRUNT_SOURCE_UPDATE = "terragrunt-source-update"
 const OPT_TERRAGRUNT_IAM_ROLE = "terragrunt-iam-role"
 const OPT_TERRAGRUNT_IGNORE_DEPENDENCY_ERRORS = "terragrunt-ignore-dependency-errors"
+const OPT_TERRAGRUNT_ALL_SUBMODULES = "terragrunt-all-submodules"
 
-var ALL_TERRAGRUNT_BOOLEAN_OPTS = []string{OPT_NON_INTERACTIVE, OPT_TERRAGRUNT_SOURCE_UPDATE, OPT_TERRAGRUNT_IGNORE_DEPENDENCY_ERRORS, OPT_TERRAGRUNT_NO_AUTO_INIT}
+var ALL_TERRAGRUNT_BOOLEAN_OPTS = []string{OPT_NON_INTERACTIVE, OPT_TERRAGRUNT_SOURCE_UPDATE, OPT_TERRAGRUNT_IGNORE_DEPENDENCY_ERRORS, OPT_TERRAGRUNT_NO_AUTO_INIT, OPT_TERRAGRUNT_ALL_SUBMODULES}
 var ALL_TERRAGRUNT_STRING_OPTS = []string{OPT_TERRAGRUNT_CONFIG, OPT_TERRAGRUNT_TFPATH, OPT_WORKING_DIR, OPT_TERRAGRUNT_SOURCE, OPT_TERRAGRUNT_IAM_ROLE}
 
 const CMD_PLAN_ALL = "plan-all"
@@ -109,6 +110,7 @@ GLOBAL OPTIONS:
    terragrunt-source-update             Delete the contents of the temporary folder to clear out any old, cached source code before downloading new source code into it.
    terragrunt-iam-role             		Assume the specified IAM role before executing Terraform. Can also be set via the TERRAGRUNT_IAM_ROLE environment variable.
    terragrunt-ignore-dependency-errors  *-all commands continue processing components even if a dependency fails.
+   terragrunt-all-submodules            *-all commands applied to all submodules
 
 VERSION:
    {{.Version}}{{if len .Authors}}
